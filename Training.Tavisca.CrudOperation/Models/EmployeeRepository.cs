@@ -8,7 +8,7 @@ namespace Training.Tavisca.CrudOperation.Models
     public class EmployeeRepository : IRepository
     {
 
-        private List<Employee> employeeList;
+        private  List<Employee> employeeList;
         
         public EmployeeRepository()
         {
@@ -19,7 +19,7 @@ namespace Training.Tavisca.CrudOperation.Models
         }
       
 
-        public List<Employee> GetAll()
+        public IEnumerable<Employee> GetAll()
         {
             return employeeList;
         }

@@ -10,10 +10,10 @@ namespace Training.Tavisca.CrudOperation.Controllers
 {
     public class EmployeeInformationController : ApiController
     {
-        IRepository repository = new EmployeeRepository();
+      static readonly  IRepository repository = new EmployeeRepository();
      
         //Return the list of EmployeeInformation
-        public List<Employee> GetAll()
+        public IEnumerable<Employee> GetAll()
         {
             return repository.GetAll();
         }
@@ -29,10 +29,10 @@ namespace Training.Tavisca.CrudOperation.Controllers
             return item;
         }
 
-        public Employee Ppostt(Employee newEmployeeinformation)
+        public Employee Post(Employee newEmployeeinformation)
         {
-           Employee item = repository.Add(newEmployeeinformation);
-            return item;
+            newEmployeeinformation = repository.Add(newEmployeeinformation);
+            return newEmployeeinformation;
         }
         public void PutEmployee(int id, Employee employeeInformation)
         {

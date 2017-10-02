@@ -10,7 +10,7 @@ namespace Training.Tavisca.CrudOperation.Models
     {
 
 
-        List<Employee> GetAll();
+        IEnumerable<Employee> GetAll();
         Employee Get(int id);
         Employee Add(Employee  EmployeeInformation);
         void Remove(int employeeId);
