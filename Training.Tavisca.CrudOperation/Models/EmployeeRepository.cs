@@ -5,20 +5,19 @@ using System.Web;
 
 namespace Training.Tavisca.CrudOperation.Models
 {
-    public class EmployeeRepository:IRepository
+    public class EmployeeRepository : IRepository
     {
 
-        private List<Employee> employeeList = new List<Employee>();
+        private List<Employee> employeeList;
         
         public EmployeeRepository()
         {
-            Add(new Employee {  Id=001,Name = "SurajNarayan",Designation="SoftwareTrainee"}
-            Add(new Employee { Id=002 , Name= "Divas Agarwal", Designation ="Senior Architect" });
-            Add(new Employee {  Id=003 ,Name = "Apandey",Designation= "Product Incharge" });
+             employeeList = new List<Employee>();
+             Add(new Employee { Id = 1, Name = "SurajNarayan", Designation = "SoftwareTrainee" });
+             Add(new Employee { Id = 002, Name = "Divas Agarwal", Designation = "Senior Architect" });
+             Add(new Employee { Id = 003, Name = "Apandey", Designation = "Product Incharge" });
         }
       
-
-
 
         public List<Employee> GetAll()
         {
@@ -53,6 +52,7 @@ namespace Training.Tavisca.CrudOperation.Models
                 if (ee.Id == employeeId)
                 {
                     employeeList.Remove(ee);
+                    return;
                 }
             }
         }

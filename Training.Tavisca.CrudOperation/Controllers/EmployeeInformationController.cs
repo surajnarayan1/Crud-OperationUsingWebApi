@@ -19,7 +19,7 @@ namespace Training.Tavisca.CrudOperation.Controllers
         }
         //Return the The particular EmployeeInformation
 
-        public Employee GetProduct(int id)
+        public Employee Get(int id)
         {
             Employee item = repository.Get(id);
             if (item == null)
@@ -29,12 +29,30 @@ namespace Training.Tavisca.CrudOperation.Controllers
             return item;
         }
 
+        public Employee Ppostt(Employee newEmployeeinformation)
+        {
+           Employee item = repository.Add(newEmployeeinformation);
+            return item;
+        }
+        public void PutEmployee(int id, Employee employeeInformation)
+        {
+            employeeInformation.Id = id;
+            if (!repository.Update(employeeInformation))
+            {
+                throw new HttpResponseException(HttpStatusCode.NotFound);
+            }
+        }
+        public void DeleteProduct(int id)
+        {
+            Employee item = repository.Get(id);
+            if (item == null)
+            {
+                throw new HttpResponseException(HttpStatusCode.NotFound);
+            }
 
+            repository.Remove(id);
+        }
 
     }
-
-
-
-
 
 }
